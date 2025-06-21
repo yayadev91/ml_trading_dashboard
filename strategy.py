@@ -15,10 +15,7 @@ def fetch_data(ticker="AAPL"):
     df['macd'] = ta.trend.MACD(close=close).macd_diff()
     df['ema_12'] = ta.trend.EMAIndicator(close=close, window=12).ema_indicator()
     df['ema_26'] = ta.trend.EMAIndicator(close=close, window=26).ema_indicator()
-    df['volatility'] = ta.volatility.AverageTrueRange(
-        high=df['High'], 
-        low=df['Low'], 
-        close=close).average_true_range()
+    df['volatility'] = ta.volatility.AverageTrueRange(high=df['High'], low=df['Low'], close=close).average_true_range()
     df['return'] = close.pct_change()
 
     for col in ['rsi', 'macd', 'ema_12', 'ema_26', 'volatility']:
