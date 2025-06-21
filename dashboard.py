@@ -14,7 +14,7 @@ if "portfolio" not in st.session_state:
 ticker = "AAPL"
 df = fetch_data(ticker)
 proba = make_prediction(df)
-price = df.Close.iloc[-1]
+price = df.iloc["Close",-1]
 timestamp = datetime.now().strftime("%Y-%m-%d %H:%M")
 st.write(price)
 st.write(f"### 🔮 Prediction: {proba:.3f} | 📈 Price: ${price:.2f} | 🕒 {timestamp}")
