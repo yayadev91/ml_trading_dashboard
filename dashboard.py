@@ -6,7 +6,6 @@ from datetime import datetime
 
 st.set_page_config(page_title="📈 ML Paper Trading Bot", layout="wide")
 st.title("📊 Machine Learning Paper Trading Dashboard")
-
 # === Session state ===
 if "portfolio" not in st.session_state:
     st.session_state.portfolio = PaperPortfolio()
@@ -17,7 +16,7 @@ df = fetch_data(ticker)
 proba = make_prediction(df)
 price = df.Close.iloc[-1]
 timestamp = datetime.now().strftime("%Y-%m-%d %H:%M")
-st.write(proba)
+st.write(price)
 st.write(f"### 🔮 Prediction: {proba:.3f} | 📈 Price: ${price:.2f} | 🕒 {timestamp}")
 
 # === Trading logic ===
